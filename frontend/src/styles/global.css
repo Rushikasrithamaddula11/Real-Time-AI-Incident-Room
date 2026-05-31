@@ -1,0 +1,123 @@
+/* ============================================================
+   INCIDENT ROOM — Global Styles
+   Colors: white, blue (#1d7ed8), red (#e63946), black (#0a0a0a), green (#2ecc71)
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Primary palette */
+  --red:      #e63946;
+  --blue:     #1d7ed8;
+  --green:    #2ecc71;
+  --white:    #f0f0f0;
+  --black:    #0a0a0a;
+  --orange:   #f4a261;
+
+  /* Dim / bg variants */
+  --red-dim:    #3a0f12;
+  --blue-dim:   #0c2a4a;
+  --green-dim:  #0a2e1a;
+  --orange-dim: #2a1500;
+
+  /* Surfaces */
+  --surface:   #111111;
+  --surface2:  #1a1a1a;
+  --surface3:  #141414;
+  --border:    #2a2a2a;
+  --border2:   #1a1a1a;
+  --muted:     #555555;
+  --dim:       #333333;
+
+  /* Typography */
+  --font-mono: 'Courier New', 'Lucida Console', monospace;
+
+  /* Transitions */
+  --transition: 0.15s ease;
+}
+
+html, body, #root {
+  min-height: 100vh;
+}
+
+body {
+  font-family: var(--font-mono);
+  background: var(--black);
+  color: #e8e8e8;
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: #111; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 2px; }
+
+/* ── Form elements ── */
+input,
+select,
+textarea {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: #e8e8e8;
+  font-family: var(--font-mono);
+  border-radius: 3px;
+  padding: 8px 12px;
+  width: 100%;
+  font-size: 12px;
+  outline: none;
+  transition: border-color var(--transition);
+}
+input:focus,
+select:focus,
+textarea:focus { border-color: var(--blue); }
+
+select option { background: var(--surface2); }
+textarea      { resize: vertical; }
+
+/* ── Buttons ── */
+button {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  border: none;
+  transition: all var(--transition);
+}
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Animations ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes ticker {
+  from { transform: translateX(100vw); }
+  to   { transform: translateX(-200%); }
+}
+
+.blink    { animation: blink 1s step-start infinite; }
+.pulse    { animation: pulse 2s ease-in-out infinite; }
+.slide-in { animation: slideIn 0.3s ease; }
+.slide-in-right { animation: slideInRight 0.35s ease; }
+.fade-in  { animation: fadeIn 0.4s ease; }
